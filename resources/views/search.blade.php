@@ -51,13 +51,13 @@ Get cosmetics products delivered to your home
     <h4 class="text-primary p-3">Search Results: {{$count}} result(s) for '{{$value ?? 'all'}}' </h4><br>
 <div class="container-fluid background">
 	<div class="row makeupdiv">
-		@forelse($items as $makeupitemd)
+		@forelse($makeups as $makeup)
 		<div class="col-md-4 col-lg-3 col-sm-6 col-xs-12">
 			<div class="card mt-3" style="width: 100%;">
         <a href="makeup-details/{{$makeup->id}}"><img class="card-img-top" src="uploads/{{$makeup->image ?? ''}}" alt="Card image cap" height="150px">
         </a>
   <div class="card-body">
-    <h5 class="card-title">{{$item->item_name}}</h5>
+    <h5 class="card-title">{{$makeup->makeup_name}}</h5>
   </div>
   <ul class="list-group list-group-flush">
 
