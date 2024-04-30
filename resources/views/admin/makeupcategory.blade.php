@@ -27,7 +27,7 @@ Makeup Hub | Makeup Category
                 <form action="{{ asset('submitcategory')}}" method="post">
 
                   @csrf
-                <input type="text" name="category" placeholder="Enter makeup category.." class="form-control" style="font-size: 18px; height: 42px;"><br>
+                <input type="text" name="category" placeholder="Enter makeup category.." class="form-control" style="font-size: 18px; height: 42px;" required><br>
                 <input type="submit" name="submit" class="btn btn-primary" value="Add">
               </form>
 
