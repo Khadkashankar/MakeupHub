@@ -46,14 +46,14 @@ Makeup Menu
                 <form action="/search" method="post">
                   @csrf
                  <input type="hidden" name="search" value="2">
-                 <button class="btn btn-primary" type="submit">Makeup Pickup</button>
+                 <button class="btn btn-primary" type="submit">Cosmetics Pickup</button>
                 </form>
               </div>
               <div class="col-md-2">
                 <form action="/search" method="post">
                   @csrf
                  <input type="hidden" name="search" value="3">
-                 <button class="btn btn-primary" type="submit">Makeup Delivered</button>
+                 <button class="btn btn-primary" type="submit">Cosmetics Delivered</button>
                 </form>
               </div>
                 <div class="table-responsive">

@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-Makeup Hub | Add Makeup
+Makeup Hub | Add Cosmetics
 @endsection
 
 
@@ -22,10 +22,10 @@ Makeup Hub | Add Makeup
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">Makeup Menu</h4><hr>
+                <h4 class="card-title">Cosmetics Menu</h4><hr>
               </div>
               <div class="card-body">
-                <h3><u>Add Makeup</u></h3>
+                <h3><u>Add Cosmetics</u></h3>
                 <form method="post" action="{{ asset('submitaddmakeup')}}" enctype="multipart/form-data">
                   @csrf
 
@@ -51,7 +51,7 @@ Makeup Hub | Add Makeup
                     <textarea class="form-control" required placeholder="Write Description.." name="description"></textarea>
                   </div><br>
                   <div class="form-group">
-                    <label for="MakeupType">Makeup Type: </label>
+                    <label for="MakeupType">Cosmetics Type: </label>
                     <div class="makeuptype">
                      <select id="type" class="form-control" name="type" required autofocus>
                                     <option>Choose any one..</option>

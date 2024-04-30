@@ -70,7 +70,7 @@
            <li class="@yield('makeupcat')">
             <a href="{{asset('makeupcategory')}}">
               <i class="fa fa-list-alt" aria-hidden="true"></i>
-              <p>Makeup Category</p>
+              <p>Cosmetics Category</p>
             </a>
           </li>
 

@@ -36,7 +36,7 @@ active
               @elseif($order->order_status == '1')
               <span class="text-danger">Order Confirmed.</span>
               @elseif($order->order_status == '2')
-              <span class="text-danger">Makeup Pickup.</span>
+              <span class="text-danger">Cosmetics Pickup.</span>
               @elseif($order->order_status == '3')
               <span class="text-danger">Makeup delivered.</span>
               @endif

@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-Makeup Hub | Makeup Category
+Makeup Hub | Cosmetics Category
 @endsection
 
 
@@ -16,7 +16,7 @@ Makeup Hub | Makeup Category
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Makeup Category</h4><hr>
+                <h4 class="card-title"> Cosmetics Category</h4><hr>
 
               </div>
 
@@ -27,7 +27,7 @@ Makeup Hub | Makeup Category
                 <form action="{{ asset('submitcategory')}}" method="post">
 
                   @csrf
-                <input type="text" name="category" placeholder="Enter makeup category.." class="form-control" style="font-size: 18px; height: 42px;" required><br>
+                <input type="text" name="category" placeholder="Enter cosmetics category.." class="form-control" style="font-size: 18px; height: 42px;" required><br>
                 <input type="submit" name="submit" class="btn btn-primary" value="Add">
               </form>
 

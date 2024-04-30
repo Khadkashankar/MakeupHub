@@ -68,9 +68,9 @@ Makeup Menu
                         @elseif($i->order_status == '1')
                         Order Confirmed
                         @elseif($i->order_status == '2')
-                        Makeup Pickup
+                        Cosmetics Pickup
                         @elseif($i->order_status == '3')
-                        Makeup delivered
+                        Cosmetics delivered
                         @endif
                       </td>
                       </tr>
@@ -137,8 +137,8 @@ Makeup Menu
                    <select class="form-control" name="os" required>
                     <option value="">Select Order Status</option>
                      <option @if($order->order_status == '1') selected @endif value="1">Order Confirmed</option>
-                     <option @if($order->order_status == '2') selected @endif value="2">Makeup Pickup</option>
-                     <option @if($order->order_status == '3') selected @endif value="3">Makeup delivered</option>
+                     <option @if($order->order_status == '2') selected @endif value="2">Cosmetics Pickup</option>
+                     <option @if($order->order_status == '3') selected @endif value="3">Cosmetics delivered</option>
                    </select>
 
                    <input type="submit" name="submit" value="Update" class="btn btn-danger">
