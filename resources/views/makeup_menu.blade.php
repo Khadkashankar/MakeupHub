@@ -9,7 +9,7 @@ active
 @endsection
 
 @section('content')
-<h1 class="text-center text-danger">Makeup Menu List</h1>
+<h1 class="text-center text-danger">Cosmetics Menu List</h1>
 <div id="accordion">
   <div class="card-menu-list">
     <div class="card-header bg-success" id="headingOne">

@@ -27,7 +27,7 @@ Makeup Hub | City
                 <form action="{{ asset('addcity')}}" method="post">
 
                   @csrf
-                  <select class="form-control" style="font-size: 18px; height: 42px; margin-bottom: 10px" name="district_id">
+                  <select class="form-control" style="font-size: 18px; height: 42px; margin-bottom: 10px" name="district_id" required>
                     <option>select district</option>
                     @foreach($district as $dis)
                     <option value="{{ $dis->id}}">{{ $dis->name}}</option>

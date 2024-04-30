@@ -98,7 +98,7 @@ Makeup Hub
     </div>
     @endforeach
     @else
-     <h5><a href="{{asset('login')}}">Login</a> to view recommended makeup!</h5>
+     <h5><a href="{{asset('login')}}">Login</a> to view recommended cosmetics!</h5>
     @endif
 
   </div>

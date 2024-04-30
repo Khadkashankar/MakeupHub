@@ -83,7 +83,7 @@
   <center>
   <form action="/searchmakeup" method="post">
         @csrf
-     <input type="search" name="search" class="p-2 m-1" placeholder="search makeup menu / blank it to browse all " style="outline-width: 0" value="{{old('search',$value?? '')}}">
+     <input type="search" name="search" class="p-2 m-1" placeholder="search..." style="outline-width: 0" value="{{old('search',$value?? '')}}">
      <button class="btn btn-success" type="submit" style="margin-left: -59px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; margin-bottom: 1px"><i class="fa fa-search" style="padding: 3px; font-size: 20px"></i></button>
   </form>
       <!-- <div style="background-color: rgba(0,0,0, 0.8); padding: 10px">
@@ -106,15 +106,9 @@
         </ul>
       </div>
       <div class="col-md-2 column" >
-        <h4>Get Help</h4>
-        <ul type="circle" class="u_list">
-          <li><a href="/how-to-order">How to Order?</a></li>
-          {{-- <li><a href="">FAQs</a></li> --}}
-        </ul>
       </div>
       <div class="col-md-5 column" >
-        <h4>Map Location</h4>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1042.8729861469787!2d85.32994872200382!3d27.67987503968123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19ca771e9e55%3A0xc94f84d1f057520f!2sNagarjuna%20College%20of%20IT!5e0!3m2!1sen!2snp!4v1618764241344!5m2!1sen!2snp" style="border:0;" loading="lazy"></iframe>
+
       </div>
       <div class="col-md-3 column">
         <h4>Contact Us</h4>

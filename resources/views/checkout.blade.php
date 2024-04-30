@@ -195,25 +195,10 @@
             @if(Cart::count() > 0)
             <div class="payment_method">
               Payment Option :
-            <input type="radio" name="payment" value="1" id="cod"><label for="cod">Cash on delivery</label> <input type="radio" name="payment" value="2" id="esewa"><label for="esewa">eSewa</label>
+            <input type="radio" name="payment" value="1" id="cod"><label for="cod">Cash on delivery</label>
             </div>
               <input value="Place an order" type="submit" class="btn btn-danger cod_order">
           </form>
-
-            <div class="esewa_payment">
-              <form action="https://uat.esewa.com.np/epay/main" method="POST">
-              <input value="{{str_replace(',','', Cart::subtotal()) + '50' }}" name="tAmt" type="hidden">
-              <input value="{{  Cart::subtotal() }}" name="amt" type="hidden">
-              <input value="0" name="txAmt" type="hidden">
-              <input value="0" name="psc" type="hidden">
-              <input value="50" name="pdc" type="hidden">
-              <input value="EPAYTEST" name="scd" type="hidden">
-              <input value="12345" name="pid" type="hidden">
-              <input value="{{ route('esewa.success')}}" type="hidden" name="su">
-              <input value="{{ route('esewa.fail')}}" type="hidden" name="fu">
-              <input value="Pay with eSewa" type="submit" class="btn btn-success">
-            </form>
-            </div>
             @endif
         </div>
       </div>
@@ -226,15 +211,8 @@
 
 <script type="text/javascript">
   $('.cod_order').hide();
-  $('.esewa_payment').hide();
   $('#cod').on('click', function(){
-    $('.esewa_payment').hide();
     $('.cod_order').show();
-});
-
-  $('#esewa').on('click', function(){
-  $('.cod_order').hide();
-  $('.esewa_payment').show();
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>

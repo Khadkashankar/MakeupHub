@@ -80,8 +80,8 @@ Route::group(['middleware'=>['auth','user']], function(){
 	Route::get('myorders','makeupcontroller@orders')->name('myorders');
 	Route::post('ordermakeup','makeupcontroller@ordermakeup')->name('ordermakeup');
 
-	Route::post('esewa/success','esewaController@success')->name('esewa.success');
-	Route::post('esewa/fail','esewaController@fail')->name('esewa.fail');
+	// Route::post('esewa/success','esewaController@success')->name('esewa.success');
+	// Route::post('esewa/fail','esewaController@fail')->name('esewa.fail');
 
 	Route::get('checkout','makeupcontroller@checkout');
 	Route::get('your-detail/{id}','makeupcontroller@yourdetail');
