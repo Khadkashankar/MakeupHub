@@ -38,13 +38,15 @@ Makeup Hub | Home
 	}
 </style>
 @section('content')
-
+<br> 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-7">
-			<h2>Cosmetic Order Page</h2>
-			<img src="{{asset('uploads')}}/{{$data['details']->image ?? ''}}" height="50%" width="50%" class="img img-responsive img-thumbnail">
+		<div class="col-md-7 mx-auto">
+			<h2 class="text-center">Cosmetic Order Page</h2>
+			<br>
+			<img src="{{asset('uploads')}}/{{$data['details']->image ?? ''}}" height="200" width="300" class="img img-responsive img-thumbnail"> <br> <br>
 			<table class="table table-striped">
+		
 				<tr>
 					<th colspan="2" class="text-danger">Cosmetic Details</th>
 				</tr>
@@ -77,7 +79,7 @@ Makeup Hub | Home
 			<p id="result">@forelse($data['rating_value'] as $r)
 				<p class="text-primary">You already gave {{$r->rating_value}} rating..</p>
 				@empty
-				<p class="text-warning">Please give rating..</p>
+
 				@endforelse
 			</p>
 			@if($errors->any())

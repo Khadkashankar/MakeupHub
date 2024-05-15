@@ -42,16 +42,15 @@ active
     @forelse($carts as $i=>$cart)
     <div class="orderdiv">
       <li>
-    <img src="uploads/{{$cart->options->image ?? ''}}" width="200" style="display: inline-block; padding: 4px;overflow: hidden; height: 190px !important;" align="left" class=" img-thumbnail" alt="Makeup Image"><br>
+  <img src="uploads/{{$cart->options->image ?? ''}}" width="190" style="display: inline-block; padding: 4px; overflow: hidden; height: 190px !important;" align="left" class=" img-thumbnail" alt="Makeup Image"><br>
 
-  <p style="float: right; padding: 8px;" id="{{$i}}" class="font-weight-bold ml-3 btn btn-outline-danger remove"
+  <p style="float: right; padding: 8px; " id="{{$i}}" class="font-weight-bold ml-3 btn btn-outline-danger remove "
   onclick="removeCart(event,id)">Remove</p>
   <div>
     <p id="{{$i}}" style="float: right; padding: 8px;" class="btn btn-success font-weight-bold btnupdate" onclick="updateCart(event,id)">Update Cart</p>
   </div>
-
-      <div style="display: inline;">
-          <p class="ml-4"><b>{{$cart->name}}</b></p>
+      <div style="display: inline-block; margin-left: 10px">
+          <p class="ml-4 "><b>{{$cart->name}}</b></p>
     <p>{{$cart->options->description}}</p>
         </div>
     <div class="d-flex gparent" style="justify-content: space-between;">
@@ -65,7 +64,7 @@ active
               <span class="input-group-text">+</span>
           </div>
           <div>
-          <p class="font-weight-bold text-success m-2 p-1 text-right"> Total : <input type="text" class="price" value="{{$cart->subtotal}}" disabled></p>
+          <p class="font-weight-bold text-success m-2 p-1 text-right"> Total: <input type="text" class="price" value="{{$cart->subtotal}}" disabled></p>
           </div>
       </div>
     </div>
@@ -83,17 +82,18 @@ active
 
   </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-5">
     <div class="container text-center">
       <table class="table table-responsive">
         <tr>
-          <th>Grand Total : </th>
+          <th >Grand Total : </th>
           <td class="grandtotal">{{ Cart::subtotal()}}</td>
         </tr>
       </table>
 
 @if(Cart::count() > 0)
       <a href="/checkout" class="text-white btn btn-danger float-right orderbtn">Checkout</a>
+     
 @endif
     </div>
   </div>

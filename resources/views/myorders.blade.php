@@ -30,7 +30,7 @@ active
 
           <div style="display: inline-block;">
             <p class="font-weight-bold text-danger">{{$order->makeup->makeup_name}}</p>
-            <p><b>Order Date: </b>{{$order->created_at}}</p>
+            <p><b>  Order Date: </b>{{$order->created_at}}</p>
             <p><b>Status:</b> @if($order->order_status == '0')
                 <span class="text-danger">Waiting for approval.</span>
               @elseif($order->order_status == '1')

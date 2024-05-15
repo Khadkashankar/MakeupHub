@@ -12,10 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
-
 Route::post('/searchmakeup', 'makeupcontroller@search');
-
 Route::post('/feedback', 'makeupcontroller@feedback');
 Route::get('/all', 'makeupcontroller@all');
 Route::get('/makeup-list', 'makeupcontroller@makeupMenu')->name('makeup_menu');

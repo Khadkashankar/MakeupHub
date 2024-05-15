@@ -1,169 +1,206 @@
-*{
-	font-family: cursive !important;
+* {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    margin: 0%;
+    padding: 0px;
 }
 
-.background{
-    background: #fff;
+.background {
+    background: #aaa6a6d2;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 50px 0px;
-  }
-  .fooddiv{
+}
+.fooddiv {
     margin: -70px 0px 30px 30px !important;
     padding: 20px 20px !important;
     padding-bottom: 40px !important;
-    box-shadow: 1px 1px 4px 1px gray;
+    box-shadow: 1px 1px 4px 1px rgb(91, 89, 89);
     border-radius: 5px;
     background-color: #fff;
-  }
-  .active{
-    border-bottom: 5px solid #ea378a;
-  }
+}
+.container-fluid {
+    background-color: #c5c1c6;
+    padding-left: 0%;
+    padding-right: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: -5px;
+}
+.text {
+    color: #dd2828;
+}
+.makeupdiv {
+    margin-top: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
-  .flist{
+.row {
+    margin-left: 0px;
+}
+.backgroundsearch {
+    margin: 0% auto;
+}
+.card-title {
+    color: #dd2828;
+}
+.active {
+    border-bottom: 5px solid #ea378a;
+}
+.flist {
     font-size: 20px;
     line-height: 2.5rem;
-
-  }
-  .card{
+}
+.card {
     border-radius: 10px !important;
     border: none !important;
     text-align: center;
-    height: 450px;
-    padding: 10px !important;
-  }
+    height: 400px;
+    padding: 0px 10px 90px !important;
+}
 
-  #accordion{
+#accordion {
     width: 80%;
     margin: 10px auto;
-  }
-  .card-header{
+}
+.card-header {
     padding: 0px !important;
     margin-bottom: 15px !important;
-  }
-  img{
+}
+img {
     border-radius: 10px !important;
     height: 250px !important;
-  }
-  .card:hover{
+}
+.card:hover {
     box-shadow: 0px 0px 15px 1px gray;
     transition: all 0.3s ease-in-out;
-  }
-  .view > a{
+}
+.view > a {
     border-radius: 30px;
-  }
-  .list-title{
+}
+.list-title {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 90px;
     display: inline-block;
     color: #ec3934;
-  }
+}
 
-.backgroundsearch{
-    background: url('/uploads/cosmetics.jpeg');
+.backgroundsearch {
+    background: url("https://images.unsplash.com/photo-1546877625-cb8c71916608?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    padding: 122px 0px;
-  }
-    input{
+    padding: 170px 20px;
+    margin-top: 4px;
+}
+input {
     width: 50%;
     border-radius: 30px;
     border: none;
-  }
-
-     #loading{
-            height: 100vh;
-            width: 100%;
-            background: white url('{{ asset('/preloader/preloader.gif')}}');
-            background-position: center;
-            background-repeat: no-repeat;
-            position: fixed;
-            left: ;
-            z-index: 99999;
-
-        }
-
-
-.list > li{
-	padding: 0px !important;
 }
 
-.nav-link{
-  color: white !important;
-  font-weight: bold;
-	font-size: 18px;
-}
-.nav-link:hover{
-		color: #d2d2d6 !important;
-}
-.main-header{
-	background-color: #047a5d !important;
-	padding: 0px 20px 0px 20px;
-	position: sticky;
-	top: 0px;
-	z-index: 999;
-}
-.logo{
-	font-size: 30px;
-	text-shadow: 2px 2px red;
+#loading {
+    height: 100vh;
+    width: 100%;
+    background: white url("{{ asset("/preloader/preloader.gif")}}");
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    left: ;
+    z-index: 99999;
 }
 
-.main-footer{
-	background-color: #047a5d;
-	color: white;
-}
-.footer-row{
-	padding: 40px 10px 30px 10px;
-}
-.column > h4{
-	display: inline-block;
-	padding-bottom: 3px;
-	border-bottom: 3px solid #06d19e;
-}
-.column > iframe{
-	display: block;
-	height: auto;
-	width: auto;
-}
-.u_list >li >a{
-	color: white;
-	text-decoration: none;
-}
-.u_list >li >a:hover{
-	color: cyan;
-	text-decoration: none;
+.list > li {
+    padding: 0px !important;
 }
 
-.last-footer{
-	display: flex;
-	justify-content: space-between;
-	padding: 10px;
-	background-color: green !important;
-	color: white;
+.nav-link {
+    color: rgb(0, 0, 0) !important;
+    font-weight: bold;
+    font-size: 18px;
 }
-.last-footer > .f1 >p{
-	padding: 0px;
-	font-size: 18px;
-	margin: 0px;
+.nav-link:hover {
+    color: #d32542 !important;
 }
-
-form > textarea{
-	resize: none;
-	margin-bottom: 5px;
-}
-form > input, button{
-	margin-bottom: 5px;
+.main-header {
+    background-color: #ffffffd0 !important; /* Semi-transparent red background */
+    padding: 5px 20px; /* Add padding to the top and bottom */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
+.logo {
+    font-size: 25px;
+    /* Soft shadow effect */
+    font-weight: bold;
+    color: black;
+    background-color: #000000;
+}
+
+.main-footer {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+.footer-row {
+    padding: 10px 10px 30px 10px;
+}
+.column > h4 {
+    display: inline-block;
+    padding-bottom: 3px;
+    border-bottom: 3px solid #ffffff;
+}
+.column > iframe {
+    display: block;
+    height: auto;
+    width: auto;
+}
+.u_list > li > a {
+    color: white;
+    text-decoration: none;
+}
+.u_list > li > a:hover {
+    color: cyan;
+    text-decoration: none;
+}
+
+.last-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgba(175, 173, 173, 0.381) !important;
+    color: rgb(0, 0, 0);
+}
+.last-footer > .f1 > p {
+    padding: 0px;
+    font-size: 18px;
+    margin: 0px;
+}
+
+form > textarea {
+    resize: none;
+    margin-bottom: 5px;
+}
+form > input,
+button {
+    margin-bottom: 5px;
+}
 
 /*...css for mobile devices... */
 
-@media only screen and (max-width: 500px){
- .backgroundsearch{
-    background: url('uploads/backgroundsearch.jpg');
-    background-repeat: no-repeat;
-    padding: 50px 0px;
-  }
-        }
+@media only screen and (max-width: 500px) {
+    .backgroundsearch {
+        background: url("uploads/backgroundsearch.jpg");
+        background-repeat: no-repeat;
+        padding: 50px 0px;
+    }
+}
+.orderbtn {
+    background-color: #000000f3;
+    border: none;
+}
+.orderbtn:hover {
+    background-color: #30c10ff3;
+}

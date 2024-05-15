@@ -42,7 +42,7 @@
 @endif
    <ul class="navbar-nav ml-auto">
     <li class="nav-item pr-5">
-        <a class="nav-link @yield('cartactive')" style="font-size: 18px; color: white" href="{{asset('cart')}}"><i class="fa-solid fa-cart-shopping" aria-hidden="true" style="font-size: 25px; color: white"></i> Cart <sup style="background: green; padding: 4px; color: white; border-radius: 5px;" class="cartcount">{{Cart::count() ?? ''}}</sup></a>
+        <a class="nav-link @yield('cartactive')" style="font-size: 18px; color: black" href="{{asset('cart')}}"><i class="fa-solid fa-cart-shopping" aria-hidden="true" style="font-size: 25px; color: black"></i> Cart <sup style="background: green; padding: 4px; color: black; border-radius: 5px;" class="cartcount">{{Cart::count() ?? ''}}</sup></a>
       </li>
 @if(Auth::user())
    <li class="nav-item dropdown " style="font-size: 18px;">
@@ -84,7 +84,7 @@
   <form action="/searchmakeup" method="post">
         @csrf
      <input type="search" name="search" class="p-2 m-1" placeholder="search..." style="outline-width: 0" value="{{old('search',$value?? '')}}">
-     <button class="btn btn-success" type="submit" style="margin-left: -59px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; margin-bottom: 1px"><i class="fa fa-search" style="padding: 3px; font-size: 20px"></i></button>
+     <button class="btn btn-primary" type="submit" style="margin-left: -60px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; margin-bottom: 1px"><i class="fa fa-search" style="padding: 4px 4px; font-size: 20px"></i></button>
   </form>
       <!-- <div style="background-color: rgba(0,0,0, 0.8); padding: 10px">
           <h2 style=" font-weight: bold; font-size: 40px; color: red">Are You Hungry ??</h2>
