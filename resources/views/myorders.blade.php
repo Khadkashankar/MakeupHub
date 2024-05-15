@@ -11,7 +11,7 @@ active
 @section('content')
 
 <div class="container-fluid jumbotron">
-@if(Session::has('success'))
+@if(Session::has('success')) 
       <p class="alert alert-success">{{Session::get('success')}}</p>
   @endif
 @forelse($orders as $order)

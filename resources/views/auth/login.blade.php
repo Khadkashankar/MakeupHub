@@ -19,11 +19,10 @@ Login
         background-color: rgba(1, 1, 1, 0.2);
         padding: 20px;
         border-radius: 10px;
-   box-shadow: 0 0 10px rgba(244, 1, 23, 0.5);
+        box-shadow: 0 0 10px rgba(244, 1, 23, 0.5);
         max-width: 500px;
         margin-left: 16%; /* Centering the container */
         margin-top: 100px; /* Adjust top margin as needed */
-
     }
 
     .card-header {
@@ -38,6 +37,7 @@ Login
 
     .form-control {
         border-radius: 5px;
+        color: white; /* Ensuring the text color remains black */
     }
 
     .btn-primary {
@@ -59,7 +59,6 @@ Login
         margin-top: 20px;
     }
     
-  
 </style>
 
 <div class="container">
@@ -74,7 +73,7 @@ Login
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right emails" style="color: white; " >{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right emails" style="color: white;">{{ __('E-Mail Address') }}</label>
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
@@ -86,7 +85,6 @@ Login
                         </div>
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right passwords" style="color: white;">{{ __('Password') }}</label>
-
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 @error('password')
@@ -102,7 +100,7 @@ Login
                                     {{ __('Login') }}
                                 </button>
                                 @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}" style="color: white; ">
+                                <a class="btn btn-link" href="{{ route('password.request') }}" style="color: white;">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                                 @endif

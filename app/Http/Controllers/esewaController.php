@@ -17,8 +17,7 @@ class esewaController extends Controller
 		    'pid'=> '12345',
 		    'scd'=> 'EPAYTEST'
 		];
-
-	    $curl = curl_init($url);
+	     $curl = curl_init($url);
 	    curl_setopt($curl, CURLOPT_POST, true);
 	    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -29,7 +28,7 @@ class esewaController extends Controller
 
 	    if(trim($response_code) == 'success'){
 	    	$carts = Cart::content();
-
+			
         foreach($carts as $cart){
             $order = Order::create([
                 'u_id' => auth()->user()->id,
@@ -42,7 +41,6 @@ class esewaController extends Controller
                 'payment_method' => '2',
                 'payment_status' => '1';
             ]);
-
             }
             if($order){
             	Session::pull('cart');
@@ -52,7 +50,6 @@ class esewaController extends Controller
     }
 
   }
-
     public function fail(Request $req){
     	return redirect()->route('myorders')->with('success','payment Failed and your order is could not be saved! Try again !');
     }

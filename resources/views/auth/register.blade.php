@@ -40,7 +40,10 @@ Register
 
     .form-control {
         border-radius: 5px;
+    
+        color: white; /* Ensuring the text color remains black */
     }
+    
 
     .btn-primary {
         background-color: #dc3545;
