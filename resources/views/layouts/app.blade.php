@@ -24,9 +24,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm">
             <div class="container">
-                <a class="navbar-brand text-primary font-weight-bold" href="{{ url('/') }}">
-                    {{ config('app.name', 'Makeup Hub') }}
-                </a>
+  <a class="navbar-brand text-success font-weight-bold" href="{{ url('/') }}" style="font-size: 24px;">
+    <span style="color: #FFFFFF;">Makeup</span> <span style="color: Red;">Hub</span>
+</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
