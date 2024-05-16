@@ -23,7 +23,9 @@ active
     box-shadow: 0px 0px 10px 1px gray;
     padding: 20px;
     margin-bottom: 15px;
+
   }
+ 
 </style>
 
   @section('content')
@@ -50,7 +52,7 @@ active
     <p id="{{$i}}" style="float: right; padding: 8px;" class="btn btn-success font-weight-bold btnupdate" onclick="updateCart(event,id)">Update Cart</p>
   </div>
       <div style="display: inline-block; margin-left: 10px">
-          <p class="ml-4 "><b>{{$cart->name}}</b></p>
+         <p class="ml-0"><b class="ml-0">{{$cart->name}}</b></p>
     <p>{{$cart->options->description}}</p>
         </div>
     <div class="d-flex gparent" style="justify-content: space-between;">
