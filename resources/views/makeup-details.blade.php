@@ -36,6 +36,18 @@ Makeup Hub | Home
 	.butn > a{
 		border-radius: 30px;
 	}
+	  .butn a.btn,
+    .rating .btn-success {
+        margin: -12px 0; /* Adjust these values as needed */
+    }
+
+    .rating {
+        margin-bottom: 50px; /* Adjust if more spacing is needed around the rating section */
+    }
+
+    .butn {
+        margin-bottom: -10px; /* Adjust if more spacing is needed around the button section */
+    }
 </style>
 @section('content')
 <br> 
@@ -44,9 +56,10 @@ Makeup Hub | Home
 		<div class="col-md-7 mx-auto">
 			<h2 class="text-center">Cosmetic Order Page</h2>
 			<br>
-			<img src="{{asset('uploads')}}/{{$data['details']->image ?? ''}}" height="200" width="300" class="img img-responsive img-thumbnail"> <br> <br>
+			<img src="{{asset('uploads')}}/{{$data['details']->image ?? ''}}" height="200" width="300" class="img img-responsive img-thumbnail"> 
+			<br> 
+			<br>
 			<table class="table table-striped">
-		
 				<tr>
 					<th colspan="2" class="text-danger">Cosmetic Details</th>
 				</tr>
@@ -64,43 +77,42 @@ Makeup Hub | Home
 				</tr>
 			</table>
 			<div class="butn">
-				<a href="{{asset('carts')}}/{{$data['details']->id}}" class="btn btn-danger" >Add to cart</a>
-			</div><br><br><br>
+				<a href="{{asset('carts')}}/{{$data['details']->id}}" class="btn btn-danger">Add to cart</a>
+			</div>
+			<br><br>
 			<div class="rating">
-			<h3>Give Rating</h3>
-			<ul class="stars" id="stars">
-				<li class="star" id="star"><i class="fa-solid fa-star"></i></li>
-				<li class="star" id="star"><i class="fa fa-star"></i></li>
-				<li class="star" id="star"><i class="fa fa-star"></i></li>
-				<li class="star" id="star"><i class="fa fa-star"></i></li>
-				<li class="star" id="star"><i class="fa fa-star"></i></li>
-			</ul>
-			@if(auth()->user())
-			<p id="result">@forelse($data['rating_value'] as $r)
-				<p class="text-primary">You already gave {{$r->rating_value}} rating..</p>
-				@empty
-
-				@endforelse
-			</p>
-			@if($errors->any())
-				<h5 class=" bg-primary">{{$errors->first()}}</h5>
-			@endif
-			<form method="post" action="/rating" name="ratingform">
-				@csrf
-				<input type="hidden" name="fid" value="{{$data['details']->id}}" required>
-			<input type="hidden" name="ratingval" id="kr" required value="1">
-			<button type="submit" class="btn btn-success">Submit</button>
-			</form>
-		</div>
-		@else
-		<p><b style="font-size: 22px;">{{$data['total_rating']}}</b> people rate this product. Please <a href="/login">login</a> to give rating.</p>
-		@endif
+				<h3>Give Rating</h3>
+				<ul class="stars" id="stars">
+					<li class="star" id="star"><i class="fa-solid fa-star"></i></li>
+					<li class="star" id="star"><i class="fa fa-star"></i></li>
+					<li class="star" id="star"><i class="fa fa-star"></i></li>
+					<li class="star" id="star"><i class="fa fa-star"></i></li>
+					<li class="star" id="star"><i class="fa fa-star"></i></li>
+				</ul>
+				@if(auth()->user())
+					<p id="result">@forelse($data['rating_value'] as $r)
+						<p class="text-primary">You already gave {{$r->rating_value}} rating..</p>
+						@empty
+					@endforelse</p>
+					@if($errors->any())
+						<h5 class=" bg-primary">{{$errors->first()}}</h5>
+					@endif
+					<form method="post" action="/rating" name="ratingform">
+						@csrf
+						<input type="hidden" name="fid" value="{{$data['details']->id}}" required>
+						<input type="hidden" name="ratingval" id="kr" required value="1">
+						<button type="submit" class="btn btn-success">Submit</button>
+					</form>
+				@else
+					<p><b style="font-size: 22px;">{{$data['total_rating']}}</b> people rate this product. Please <a href="/login">login</a> to give rating.</p>
+				@endif
+			</div>
 		</div>
 		<div class="col-md-5">
-
 		</div>
 	</div>
 </div>
+
 <script type="text/javascript">
 
 	var stars = document.querySelectorAll('#star');
