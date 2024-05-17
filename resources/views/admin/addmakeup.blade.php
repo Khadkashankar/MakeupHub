@@ -63,7 +63,7 @@ Makeup Hub | Add Cosmetics
                   </div>
                   <div class="input-group">
                     <label>Image</label>
-                  <input type="file" name="image" class="form-control">
+                  <input type="file" name="image" class="form-control" required>
                   </div>
                   <div class="form-group">
                     <label for="price">Price</label>

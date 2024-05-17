@@ -58,7 +58,7 @@ Login
         border-top: 2px solid #dc3545;
         margin-top: 20px;
     }
-    
+
 </style>
 
 <div class="container">
