@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','phone','type','email', 'password',
+        'name','phone','usertype','email', 'password',
     ];
 
     /**
@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Define a one-to-one relationship with Artist model.
+     */
+    public function artist()
+    {
+        return $this->hasOne(Artist::class);
+    }
 }
