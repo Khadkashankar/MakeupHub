@@ -15,10 +15,14 @@ class CreateArtistsTable extends Migration
     {
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->text('description')->nullable();
-            $table->string('speciality')->nullable();
-            $table->string('image')->nullable();
+            $table->unsignedBigInteger('u_id');
+            $table->text('description');
+            $table->string('speciality');
+            $table->string('location');
+            $table->string('price');
+            $table->string('image');
+            $table->foreign('u_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,20 +64,6 @@
             <a href="{{asset('registered')}}">
               <i class="fa fa-users" aria-hidden="true"></i>
               <p>Registered Users</p>
-            </a>
-          </li>
-
-           <li class="@yield('makeupcat')">
-            <a href="{{asset('makeupcategory')}}">
-              <i class="fa fa-list-alt" aria-hidden="true"></i>
-              <p>Cosmetics Category</p>
-            </a>
-          </li>
-
-           <li class="@yield('makeupmenu')">
-            <a href="{{asset('makeupmenu')}}">
-              <i class="fas fa-bars" aria-hidden="true"></i>
-              <p>Cosmetics Menu</p>
             </a>
           </li>
 

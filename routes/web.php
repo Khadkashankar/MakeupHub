@@ -26,6 +26,11 @@ Route::get('carts/{id}','makeupcontroller@cart');
 Route::get('/about-us', 'Admin\DashboardController@aboutUs');
 Route::get('/how-to-order', 'Admin\DashboardController@howToOrder');
 
+Route::group(['middleware'=>['auth','artist']], function(){
+
+});
+Route::get('/artist-dashboard', 'artistController@artistDashboard');
+
 
 Route::group(['middleware'=>['auth','admin']], function(){
 
@@ -57,7 +62,7 @@ Route::group(['middleware'=>['auth','admin']], function(){
 		Route::post('submitaddmakeup','Admin\DashboardController@submitaddmakeup');
 
 		Route::get('makeupedit/{id}','Admin\DashboardController@makeupedit');
-		Route::get('makeupdelete/{id}','Admin\DashboardController@delete');
+		Route::get('makeupdelete/{id}','Admin\DashboardController@makeupdelete');
 
 		Route::post('submiteditmakeup','Admin\DashboardController@submiteditmakeup');
 
@@ -68,7 +73,7 @@ Route::group(['middleware'=>['auth','admin']], function(){
 		Route::get('view-order-details/{id}','Admin\DashboardController@vieworders');
 
 
-	});
+});
 
 	Route::get('/', 'makeupcontroller@index')->name('frontend.home');
 

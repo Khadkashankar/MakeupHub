@@ -11,6 +11,7 @@ use App\Address;
 use App\District;
 use App\City;
 use App\Order;
+use App\Artist;
 use App\User;
 use App\Rating;
 use App\Recommendation;
@@ -26,6 +27,8 @@ class makeupcontroller extends Controller
     	$makeups = Makeup::paginate(12);
         // ........................ makeup menu recommendation .....................
         $total_makeup_menu = Makeup::all();
+
+        $artists = Artist::with('user')->get();
 
         if($total_makeup_menu->count() > 0){
         $menuId = [];
@@ -77,7 +80,7 @@ class makeupcontroller extends Controller
             ->orderByRaw("RAND()")
             ->limit(7)
             ->get();
-        return view('index',['makeups'=>$makeups,'recommendation_ma'=>$recommend_ma,'recommendation_ma1'=>$recommend_ma1,'recommendation_both'=>$recommend_both]);
+        return view('index',['makeups'=>$makeups,'artists' => $artists,'recommendation_ma'=>$recommend_ma,'recommendation_ma1'=>$recommend_ma1,'recommendation_both'=>$recommend_both]);
         }else{
         	dd('Something Went Wrong ! Please visit later');
         }

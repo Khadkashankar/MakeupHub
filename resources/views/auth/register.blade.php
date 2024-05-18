@@ -22,10 +22,10 @@ Register
         max-width: 550px;
         margin-left: 13%; /* Centering the container */
         margin-top: 0px;
-        height:535px;
+        height:700px;
 
        /* Adjust top margin as needed */
-        
+
     }
 
      .card-header {
@@ -40,10 +40,10 @@ Register
 
     .form-control {
         border-radius: 5px;
-    
+
         color: white; /* Ensuring the text color remains black */
     }
-    
+
 
     .btn-primary {
         background-color: #dc3545;
@@ -51,9 +51,9 @@ Register
         border-radius: 5px;
         margin-top:-3px;
         margin-left:30px;
-        
-        
-        
+
+
+
     }
 
     .btn-primary:hover {
@@ -70,7 +70,19 @@ Register
     }
     .dam{
     color: #dc3545;
-  
+
+    }
+
+    textarea{
+        border: 1px solid #ced4da !important;
+        border-radius: 5px;
+        padding: 8px;
+        background-color: transparent;
+        color: white;
+        width: 100%;
+        margin-top: 5px;
+        outline: none;
+        box-sizing: border-box;
     }
     </style>
 <div class="container">
@@ -80,7 +92,7 @@ Register
                 <div class="card-header h3 text-center dam "> <i class="fas fa-sign-up" aria-hidden="true"></i>Register</div><hr>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -145,26 +157,53 @@ Register
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
                         <div class="form-group row">
-                            <label for="type" class="col-md-4 col-form-label text-md-right" style="color: white; ">{{ __('What kind of person you are?') }}</label>
-
-                            <div class="form-group">
-                            <label for="MakeupType" style="color: black; ">Makeup Type: </label>
-                             <div class="makeuptype">
-                             <div class="checkbox checkbox-success">
-                            <input type="checkbox" id="MakeupType" name="type[]" value="1" > <span class="text-white">Skincare</span>
+                                <label for="usertype" class="col-md-4 col-form-label text-md-right" style="color: white;">{{ __('User Type') }}</label>
+                                <div class="col-md-6">
+                                    <select id="usertype" class="form-control" name="usertype">
+                                        <option value="user">User</option>
+                                        <option value="artist">Artist</option>
+                                    </select>
                                 </div>
-                            <div class="checkbox checkbox-success">
-                                <input type="checkbox" id="MakeupType" name="type[]" value="2"> <span class="text-white">Beauty</span>
-                         </div>
-                            <div class="checkbox checkbox-success">
-                                <input type="checkbox" id="MakeupType" name="type[]" value="3"> <span class="text-white">Haircare</span>
-                         </div>
-                    </div>
-                  </div>
+                            </div>
+
+                            <div id="artist-fields" style="display: none;">
+                                <div class="form-group row">
+                                    <label for="description" class="col-md-4 col-form-label text-md-right" style="color: white;">{{ __('Description') }}</label>
+                                    <div class="col-md-6">
+                                        <textarea id="description" class="form-control" name="description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="speciality" class="col-md-4 col-form-label text-md-right" style="color: white;">{{ __('Speciality') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="speciality" type="text" class="form-control" name="speciality">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="location" class="col-md-4 col-form-label text-md-right" style="color: white;">{{ __('Location') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="location" type="text" class="form-control" name="location">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="location" class="col-md-4 col-form-label text-md-right" style="color: white;">{{ __('Price') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="price" type="number" class="form-control" name="price">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="image" class="col-md-4 col-form-label text-md-right" style="color: white;">{{ __('Image') }}</label>
+                                    <div class="col-md-6">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="image" name="image">
+                                            <label class="custom-file-label" id="imageLabel" for="image">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
 
                         </div>
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -179,4 +218,23 @@ Register
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#usertype').change(function() {
+            var userType = $(this).val();
+            if (userType === 'artist') {
+                $('#artist-fields').show();
+            } else {
+                $('#artist-fields').hide();
+                $('#description').text('');
+                $('#speciality').text('');
+            }
+        });
+        $('#image').change(function() {
+            var fileName = $(this).val().split('\\').pop();
+            $('#imageLabel').text(fileName);
+        });
+    });
+</script>
 @endsection

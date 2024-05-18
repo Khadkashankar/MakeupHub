@@ -1,13 +1,16 @@
 <?php
 
 namespace App;
+use App\User;
+
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Artist extends Model
 {
-    use HasFactory;
+    protected $table = 'artists';
+
 
     /**
      * The attributes that are mass assignable.
@@ -15,14 +18,13 @@ class Artist extends Model
      * @var array
      */
     protected $fillable = [
-        'description', 'speciality', 'image', // Add other fields here
+        'u_id', 'description', 'location', 'speciality','price', 'image',
     ];
 
     /**
      * Define the inverse of the one-to-one relationship with User model.
      */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
+    public function user(){
+        return $this->belongsTo(User::class,'u_id');
     }
 }

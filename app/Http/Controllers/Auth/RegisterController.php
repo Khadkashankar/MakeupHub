@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Artist;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -35,7 +36,9 @@ class RegisterController extends Controller
       protected function redirectTo(){
         if (Auth::User()->usertype =='admin') {
             return 'dashboard';
-        }else{
+        } elseif (Auth::User()->usertype == 'artist') {
+            return 'artist-dashboard';
+        } else {
             return '/';
         }
     }
@@ -58,12 +61,22 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string'],
-            'phone' => ['required', 'string'],
+        $rules = [
+            'name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:15'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:4', 'confirmed'],
-        ]);
+            'usertype' => ['required', 'string', 'in:user,artist'],
+        ];
+
+        if ($data['usertype'] === 'artist') {
+            $rules['description'] = ['required', 'string', 'max:1000'];
+            $rules['speciality'] = ['required', 'string', 'max:255'];
+            $rules['image'] = ['required', 'image', 'mimes:jpeg,png,jpg'];
+            $rules['price'] = ['required', 'numeric'];
+        }
+
+        return Validator::make($data, $rules);
     }
 
     /**
@@ -74,11 +87,32 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'phone' => $data['phone'],
             'email' => $data['email'],
+            'usertype' => $data['usertype'],
             'password' => Hash::make($data['password']),
         ]);
+
+        if ($data['usertype'] === 'artist') {
+            $filename = null;
+            if (isset($data['image'])) {
+                $file = $data['image'];
+                $originalName = $file->getClientOriginalName();
+                $filename = time() . '.' . $originalName;
+                $file->move(public_path('artistimages/'), $filename);
+            }
+
+            Artist::create([
+                'u_id' => $user->id,
+                'image' => $filename,
+                'description' => $data['description'],
+                'location' => $data['location'],
+                'speciality' => $data['speciality'],
+                'price' => $data['price'],
+            ]);
+        }
+        return $user;
     }
 }
