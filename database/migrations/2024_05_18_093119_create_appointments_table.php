@@ -17,7 +17,7 @@ class CreateAppointmentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('artist_id');
             $table->unsignedBigInteger('user_id');
-            $table->dateTime('appointment_date');
+            $table->date('appointment_date');
             $table->text('description')->nullable();
             $table->string('status')->nullable();
             $table->foreign('artist_id')->references('id')->on('artists')->onDelete('cascade');

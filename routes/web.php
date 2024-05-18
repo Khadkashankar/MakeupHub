@@ -27,8 +27,9 @@ Route::get('/about-us', 'Admin\DashboardController@aboutUs');
 Route::get('/how-to-order', 'Admin\DashboardController@howToOrder');
 
 Route::get('/artist-details/{id}', 'artistController@artist_details')->name('details');
-Route::get('book/{id}','artistController@book');
-
+Route::get('appointment/{id}', 'artistController@appointment')->name('appointment');
+Route::post('appointment/store', 'artistController@storeAppointment')->name('appointment.store');
+Route::post('appointments/{id}/cancel', 'artistController@cancelAppointment')->name('appointment.cancel');
 
 Route::group(['middleware'=>['auth','artist']], function(){
 
@@ -86,6 +87,7 @@ Route::group(['middleware'=>['auth','admin']], function(){
 Route::group(['middleware'=>['auth','user']], function(){
 
 	Route::get('myorders','makeupcontroller@orders')->name('myorders');
+	Route::get('myappointments','artistController@myappointments')->name('myappointments');
 	Route::post('ordermakeup','makeupcontroller@ordermakeup')->name('ordermakeup');
 
 

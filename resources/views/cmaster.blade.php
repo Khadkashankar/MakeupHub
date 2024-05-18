@@ -39,6 +39,13 @@
       </ul>
 
   </ul>
+ <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link @yield('appointmentactive')" href="{{asset('myappointments')}}">My appointment</a>
+      </li>
+      </ul>
+
+  </ul>
 @endif
    <ul class="navbar-nav ml-auto">
     <li class="nav-item pr-5">

@@ -54,7 +54,7 @@ Makeup Hub | Home
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-7 mx-auto">
-			<h2 class="text-center">Artist Order Page</h2>
+			<h2 class="text-center">Artist Details Page</h2>
 			<br>
 			<img src="{{asset('artistimages')}}/{{$data['details']->image ?? ''}}" height="200" width="300" class="img img-responsive img-thumbnail">
 			<br>
@@ -93,7 +93,7 @@ Makeup Hub | Home
 				</tr>
 			</table>
 			<div class="butn">
-				<a href="{{asset('book')}}/{{$data['details']->id}}" class="btn btn-danger">Book Now</a>
+				<a href="{{asset('appointment')}}/{{$data['details']->id}}" class="btn btn-danger">Book Now</a>
 			</div>
 			<br><br>
 			<div class="rating">

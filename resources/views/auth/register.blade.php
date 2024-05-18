@@ -22,7 +22,7 @@ Register
         max-width: 550px;
         margin-left: 13%; /* Centering the container */
         margin-top: 0px;
-        height:700px;
+        height:750px;
 
        /* Adjust top margin as needed */
 
