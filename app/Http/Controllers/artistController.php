@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Category;
+use App\Rating;
+use Cart;
 use App\District;
 use App\City;
 use App\Artist;
@@ -42,5 +45,19 @@ class artistController extends Controller
     return view('artist.dashboard',compact('data'));
 
     }
+    public function artist_details($id){
 
+        if(Auth::user()){
+            $data['rating_value'] = Rating::all()
+            ->where('u_id',Auth::User()->id)
+            ->where('f_id',$id);
+        }
+        $data['total_rating'] = Rating::where('f_id',$id)->count();
+        $data['details'] = Artist::find($id);
+        return view('artist-details',['data'=>$data]);
+    }
+
+    public function book($id){
+
+    }
 }

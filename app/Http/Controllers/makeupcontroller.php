@@ -120,7 +120,7 @@ class makeupcontroller extends Controller
     );
         $rating->save();
 
-        return redirect()->back()->withErrors(['Thanks for rating makeup !']);
+        return redirect()->back()->withErrors(['Thanks for rating!']);
     }
 
 // add items to cart.....

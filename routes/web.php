@@ -26,10 +26,14 @@ Route::get('carts/{id}','makeupcontroller@cart');
 Route::get('/about-us', 'Admin\DashboardController@aboutUs');
 Route::get('/how-to-order', 'Admin\DashboardController@howToOrder');
 
+Route::get('/artist-details/{id}', 'artistController@artist_details')->name('details');
+Route::get('book/{id}','artistController@book');
+
+
 Route::group(['middleware'=>['auth','artist']], function(){
 
+    Route::get('/artist-dashboard', 'artistController@artistDashboard');
 });
-Route::get('/artist-dashboard', 'artistController@artistDashboard');
 
 
 Route::group(['middleware'=>['auth','admin']], function(){
@@ -84,8 +88,6 @@ Route::group(['middleware'=>['auth','user']], function(){
 	Route::get('myorders','makeupcontroller@orders')->name('myorders');
 	Route::post('ordermakeup','makeupcontroller@ordermakeup')->name('ordermakeup');
 
-	// Route::post('esewa/success','esewaController@success')->name('esewa.success');
-	// Route::post('esewa/fail','esewaController@fail')->name('esewa.fail');
 
 	Route::get('checkout','makeupcontroller@checkout');
 	Route::get('your-detail/{id}','makeupcontroller@yourdetail');
