@@ -33,7 +33,7 @@ class DashboardController extends Controller
     	$user = User::find($req->id);
 
     	$user->delete();
-    	return redirect('registered');
+        return redirect()->back()->with('success','Deleted Successfully !! ');
     }
 
      function useredit($id){

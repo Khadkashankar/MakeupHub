@@ -1,11 +1,11 @@
-@extends('admin.master')
+@extends('artist.master')
 
 @section('title')
 Edit User
 @endsection
 
 
-@section('reguser')
+@section('registered-user')
        active
 @endsection
 
@@ -20,7 +20,7 @@ Edit User
               </div>
               <div class="card-body">
 
-                <form method="post" action="{{ asset('submitform')}}">
+                <form method="post" action="{{ asset('updateuser')}}">
                   @csrf
 
                   <input type="hidden" name="id" value="{{$user->id}}">
@@ -35,15 +35,10 @@ Edit User
                   </div>
 
                   <div class="form-group">
-                      <label for="ut">User Type</label>
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" class="form-control" value="{{ $user->phone }}">
+    </div>
 
-                    <select class="form-control" id="ut" name="usertype">
-                      <option value="">Select User Type</option>
-                      <option value="admin">Admin</option>
-                      <option value="user">User</option>
-                      <option value="artist">Artist</option>
-                    </select>
-                  </div>
 
                   <div class="form-group">
                     <input type="submit" name="submit" value="Update" class="btn btn-success">

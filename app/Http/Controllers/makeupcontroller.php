@@ -130,6 +130,7 @@ class makeupcontroller extends Controller
 
         Cart::add(['id' => $makeup->id,'name' => $makeup->makeup_name,'qty'=> '1','price' => $makeup->price,'weight' => '1','options' => ['image' => $makeup->image,'description' => $makeup->description]]);
 
+        dd($makeup);
             return redirect('/cart')->with('success', 'Makeup has been added into your cart');
     }
 

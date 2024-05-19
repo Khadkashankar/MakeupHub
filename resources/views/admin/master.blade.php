@@ -161,7 +161,7 @@
           <nav>
             <ul>
               <li>
-                <a href="/">
+                <a href="/dashboard">
                   Makeup Hub
                 </a>
               </li>

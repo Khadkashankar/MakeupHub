@@ -34,6 +34,18 @@ Route::post('appointments/{id}/cancel', 'artistController@cancelAppointment')->n
 Route::group(['middleware'=>['auth','artist']], function(){
 
     Route::get('/artist-dashboard', 'artistController@artistDashboard');
+    Route::get('registered-user','artistController@registered');
+    Route::post('updateuser','artistController@updateuser');
+    Route::post('deleteuser','artistController@deleteuser');
+    Route::get('edituser/{id}', 'artistController@useredit');
+    Route::get('appointments', 'artistController@appointments')->name('appointments');
+    Route::post('appointsdelete', 'artistController@appointsdelete')->name('appointsdelete');
+    Route::get('confirm-appointment/{id}', 'artistController@confirmAppointment')->name('confirmAppointment');
+    Route::get('/my-profile', 'artistController@show')->name('myProfile');
+
+    Route::get('profile/edit', 'artistController@editprofile')->name('editProfile');
+    Route::post('profile/update', 'artistController@updateprofile')->name('updateProfile');
+
 });
 
 

@@ -1,11 +1,11 @@
 @extends('artist.master')
 
 @section('title')
-Users
+Appointments
 @endsection
 
 
-@section('registered-user')
+@section('appointments')
   active
 @endsection
 @section('css')
@@ -21,7 +21,7 @@ Users
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">Users Table </h4>
+                <h4 class="card-title">Appointment Table </h4>
                 @if(session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
@@ -39,10 +39,13 @@ Users
                         Name
                       </th>
                       <th>
-                        Phone
+                        Date
                       </th>
                       <th >
-                        Email
+                        Description
+                      </th>
+                      <th >
+                        Status
                       </th>
                       <th>
                         Action
@@ -52,18 +55,23 @@ Users
                       <tr>
                         @foreach($data as $d)
                         <td>
-                          {{$d->name}}
+                          {{$d->user_name}}
                         </td>
                         <td>
-                          {{$d->phone}}
+                          {{$d->appointment_date}}
                         </td>
                         <td>
-                          {{$d->email}}
+                          {{$d->description}}
+                        </td>
+                        <td>
+                          {{$d->status}}
                         </td>
                         <td class="text-right">
                           <div class="d-flex">
-                          <a href="edituser/{{$d->id}}" class="btn btn-success mr-2">Edit</a>
-                          <form action="{{ asset('deleteuser')}}" method="post">
+                          @if($d->status != 'confirmed')
+                          <a href="{{ route('confirmAppointment', $d->id) }}" class="btn btn-success mr-2">Confirm</a>
+                          @endif
+                          <form action="{{ asset('appointsdelete')}}" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{$d->id}}" >
                             <button class="btn btn-danger" onclick="del(event)">Delete</button>

@@ -22,6 +22,14 @@ Registered Users
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title">Users Table </h4>
+                @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
               </div>
               <div class="card-body">
                 <div>
@@ -51,15 +59,15 @@ Registered Users
                         </td>
                         <td>
                           {{$d->phone}}
-                          
+
                         </td>
                         <td>
                           {{$d->usertype}}
-                          
+
                         </td>
                         <td>
                           {{$d->email}}
-                          
+
                         </td>
                         <td class="text-right">
                           <div class="d-flex">
@@ -83,7 +91,7 @@ Registered Users
         </div>
       </div>
 
-  
+
 @endsection
 
 @section('js')
@@ -103,6 +111,3 @@ Registered Users
 } );
 </script>
 @endsection
-
-
-     

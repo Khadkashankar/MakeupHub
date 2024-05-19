@@ -47,46 +47,31 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="/dashboard" class="simple-text logo-normal">
+        <a href="/artist-dashboard" class="simple-text logo-normal">
           Makeup Hub
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
 
-       <li class="@yield('dashboard')">
-            <a href="{{asset('dashboard')}}">
+       <li class="@yield('artist-dashboard')">
+            <a href="{{asset('artist-dashboard')}}">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="@yield('reguser')">
-            <a href="{{asset('registered')}}">
+          <li class="@yield('registered-user')">
+            <a href="{{asset('registered-user')}}">
               <i class="fa fa-users" aria-hidden="true"></i>
-              <p>Registered Users</p>
+              <p>Users</p>
             </a>
           </li>
-
-          <li class="@yield('orders')">
-            <a href="{{asset('orders')}}">
-              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-              <p>Orders</p>
+          <li class="@yield('appointments')">
+            <a href="{{asset('appointments')}}">
+              <i class="fas fa-calendar" aria-hidden="true"></i>
+              <p>Appointments</p>
             </a>
           </li>
-
-          <li class="@yield('district')">
-            <a href="{{asset('district')}}">
-              <i class="fas fa-city" aria-hidden="true"></i>
-              <p>District</p>
-            </a>
-          </li>
-          <li class="@yield('city')">
-            <a href="{{asset('city')}}">
-              <i class="fas fa-city" aria-hidden="true"></i>
-              <p>City</p>
-            </a>
-          </li>
-
         </ul>
       </div>
     </div>
@@ -117,6 +102,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('myProfile') }}">
+                                    My Profile
+                                </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -147,7 +135,7 @@
           <nav>
             <ul>
               <li>
-                <a href="/">
+                <a href="/artist-dashboard">
                   Makeup Hub
                 </a>
               </li>
