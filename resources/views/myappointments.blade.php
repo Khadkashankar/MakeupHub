@@ -24,6 +24,7 @@
                         <th>Appointment Date</th>
                         <th>Description</th>
                         <th>Price</th>
+                        <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -34,6 +35,7 @@
                             <td>{{ $appointment->appointment_date }}</td>
                             <td>{{ $appointment->description }}</td>
                             <td>{{ $appointment->artist->price }}</td>
+                            <td>{{ $appointment->status }}</td>
                             <td>
                                 <form action="{{ route('appointment.cancel', $appointment->id) }}" method="POST">
                                     @csrf
