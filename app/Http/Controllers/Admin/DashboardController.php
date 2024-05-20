@@ -34,7 +34,7 @@ class DashboardController extends Controller
     	$user = User::find($req->id);
 
     	$user->delete();
-        return redirect()->back()->with('success','Deleted Successfully !! ');
+    	return redirect('registered');
     }
 
      function useredit($id){
@@ -116,7 +116,6 @@ class DashboardController extends Controller
         $district = District::all();
         return view('admin.district',['district'=>$district]);
     }
-
     function addDistrict(Request $req){
         $district = new District();
 
@@ -125,7 +124,6 @@ class DashboardController extends Controller
 
         return redirect('district')->with('success','District Created !!');
     }
-
     function districtDelete($id){
         $district = District::find($id);
 
@@ -204,7 +202,6 @@ class DashboardController extends Controller
 
 
     }
-
     function makeupdelete($id){
         $makeup = Makeup::find($id);
         if($makeup->image){
@@ -301,9 +298,6 @@ class DashboardController extends Controller
         return redirect('orders')->with('success','order status saved and sms sent to the customer');
 
     }
-
-
-
     function dashboard(){
         $data = [];
 

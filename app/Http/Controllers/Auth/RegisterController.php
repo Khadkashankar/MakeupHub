@@ -34,9 +34,9 @@ class RegisterController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
       protected function redirectTo(){
-        if (Auth::User()->usertype =='admin') {
+        if (Auth::User()->usertype ==='admin') {
             return 'dashboard';
-        } elseif (Auth::User()->usertype == 'artist') {
+        } elseif (Auth::User()->usertype ==='artist') {
             return 'artist-dashboard';
         } else {
             return '/';
@@ -63,7 +63,7 @@ class RegisterController extends Controller
     {
         $rules = [
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:15'],
+            'phone' => ['required', 'string', 'max:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:4', 'confirmed'],
             'usertype' => ['required', 'string', 'in:user,artist'],
