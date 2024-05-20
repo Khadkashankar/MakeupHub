@@ -24,11 +24,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse text-danger" id="collapsibleNavbar">
-    <ul class="navbar-nav pr-2 list">
-      <li class="nav-item">
-        <a class="nav-link @yield('menuactive')" href="{{ route('makeup_menu')}}">Menu List</a>
-      </li>
-      </ul>
+
 
 @if(Auth::user())
 
@@ -77,7 +73,7 @@
 <ul class="navbar-nav ml-auto">
 
       <li class="nav-item ">
-        <a class="nav-link" href="login" style="font-size: 18px; color: white"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+        <a class="nav-link" href="/login" style="font-size: 18px; color: white"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
       </li>
 </ul>
     @endif
@@ -88,7 +84,7 @@
 <div class="container-fluid ">
   <div class="backgroundsearch">
   <center>
-  <form action="/searchmakeup" method="post">
+  <form action="/searchitem" method="post">
         @csrf
      <input type="search" name="search" class="p-2 m-1" placeholder="search..." style="outline-width: 0" value="{{old('search',$value?? '')}}">
      <button class="btn btn-primary" type="submit" style="margin-left: -60px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; margin-bottom: 1px"><i class="fa fa-search" style="padding: 4px 4px; font-size: 20px"></i></button>

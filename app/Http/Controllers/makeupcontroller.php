@@ -91,14 +91,6 @@ class makeupcontroller extends Controller
 
     // ...........................end of index blade page function .............................
 
-    public function makeupMenu(){
-        $data = [];
-        $data['skincare_makeup'] = Makeup::where([['type','1']])->orderBy('makeup_name')->get();
-        $data['beauty_makeup'] = Makeup::where([['type','2']])->orderBy('makeup_name')->get();
-        $data['haircare_makeup'] = Makeup::where([['type','3']])->orderBy('makeup_name')->get();
-        $data['fragrance_makeup'] = Makeup::where([['category','fragrances']])->orderBy('makeup_name')->get();
-        return view('makeup_menu', compact('data'));
-    }
     public function makeup_details($id){
 
         if(Auth::user()){
@@ -126,12 +118,12 @@ class makeupcontroller extends Controller
 // add items to cart.....
 
     function cart($id){
-        $makeup = Makeup::where([['id',$id]])->first();
 
+        $makeup = Makeup::where([['id',$id]])->first();
+        
         Cart::add(['id' => $makeup->id,'name' => $makeup->makeup_name,'qty'=> '1','price' => $makeup->price,'weight' => '1','options' => ['image' => $makeup->image,'description' => $makeup->description]]);
 
-        dd($makeup);
-            return redirect('/cart')->with('success', 'Makeup has been added into your cart');
+            return redirect('/cart')->with('success', 'Cosmetic has been added into your cart');
     }
 
 
@@ -281,11 +273,27 @@ class makeupcontroller extends Controller
     function search(Request $req){
         $value = $req->search;
 
-        $searches = DB::table('makeups')
-        ->where('makeup_name','like','%'.$value.'%')
-        ->paginate(20);
-        $search_count = count($searches);
-        return view('search',['makeups'=>$searches,'value'=>$value,'count'=>$search_count]);
+        $search_makeup = DB::table('makeups')
+                    ->where('makeup_name','like','%'.$value.'%')
+                    ->paginate(20);
+
+        $search_count_makeup = count($search_makeup);
+
+        $search_artist = DB::table('artists')
+                    ->join('users', 'artists.u_id', '=', 'users.id')
+                    ->where('users.usertype', 'artist')
+                    ->where('users.name', 'like', '%' . $value . '%')
+                    ->paginate(20);
+
+         $search_count_artist = count($search_artist);
+
+        return view('search',[
+            'makeupsearch'=>$search_makeup,
+            'value'=>$value,
+            'makeupcount'=>$search_count_makeup,
+            'artistsearch'=>$search_artist,
+            'artistcount'=>$search_count_artist
+        ]);
     }
 
 
