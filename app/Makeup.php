@@ -8,7 +8,7 @@ class Makeup extends Model
 {
     protected $table = 'makeups';
     protected $fillable = [
-        'category','makeup_name','description','type','image','price',
+        'category','makeup_name','description','image','price',
     ];
 
 }

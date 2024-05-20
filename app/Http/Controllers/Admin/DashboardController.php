@@ -66,7 +66,7 @@ class DashboardController extends Controller
         $category->category = $req->category;
         $category->save();
 
-        return redirect('makeupcategory')->with('success','Makeup Category Created !!');
+        return redirect('makeupcategory')->with('success','Cosmetic Category Created !!');
     }
 
     function categorydelete($id){
@@ -74,7 +74,7 @@ class DashboardController extends Controller
 
         $category->delete();
 
-        return redirect('makeupcategory')->with('success','Makeup Category Deleted !!');
+        return redirect('makeupcategory')->with('success','Cosmetic Category Deleted !!');
     }
 
     function district(){
@@ -140,15 +140,12 @@ class DashboardController extends Controller
     }
 
     function submitaddmakeup(Request $req){
-       $req->validate([
-            'type' =>'required',
-        ]);
+
         $makeup = new Makeup();
 
         $makeup->category = $req->category;
         $makeup->makeup_name = $req->name;
         $makeup->description = $req->description;
-        $makeup->type = $req->type;
 
         if ($req->hasfile('image')) {
             $file = $req->file('image');
@@ -162,7 +159,7 @@ class DashboardController extends Controller
 
         $makeup->save();
 
-        return redirect('makeupmenu')->with('success','Makeup Created Successfully!');;
+        return redirect('makeupmenu')->with('success','Cosmetic Added Successfully!');;
     }
 
     function makeupedit(Request $req){
@@ -181,7 +178,7 @@ class DashboardController extends Controller
         }
         $makeup->delete();
 
-        return redirect('makeupmenu')->with('success','Makeup Deleted Successfully!');
+        return redirect('makeupmenu')->with('success','Cosmetic Deleted Successfully!');
     }
 
 
@@ -190,13 +187,12 @@ class DashboardController extends Controller
         $makeup->category = $req->category;
         $makeup->makeup_name = $req->name;
         $makeup->description = $req->description;
-        $makeup->type = $req->type;
 
 
         if ($req->hasfile('image')) {
-            if($makeup->image){
-            unlink(public_path().'/uploads/'.$makeup->image);
-            }
+            // if($makeup->image){
+            // unlink(public_path().'/uploads/'.$makeup->image);
+            // }
             $file = $req->file('image');
             $extension = $file->getClientOriginalExtension();
             $filename = time().'.'.$extension;
@@ -208,7 +204,7 @@ class DashboardController extends Controller
 
         $makeup->save();
 
-        return redirect('makeupmenu')->with('success','Makeup Updated Successfully!');
+        return redirect('makeupmenu')->with('success','Cosmetic Updated Successfully!');
 
     }
 
@@ -262,7 +258,7 @@ class DashboardController extends Controller
         $sms = Nexmo::message()->send([
             'to'   => $user_phone,
             'from' => '9779814678481',
-            'text' => ($req->os == 1) ? 'Your order is confirmed' : (($req->os == 2) ? 'Your ordered makeup is picked up, be patient!' : 'Your Order is delivered!, Thank you for your order!'),
+            'text' => ($req->os == 1) ? 'Your order is confirmed' : (($req->os == 2) ? 'Your ordered cosmetic is picked up, be patient!' : 'Your Order is delivered!, Thank you for your order!'),
         ]);
         if($sms){
             return redirect('orders')->with('success','We notified to the customer through SMS');
