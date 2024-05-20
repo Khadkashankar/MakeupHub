@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::post('/searchmakeup', 'makeupcontroller@search');
+Route::post('/searchitem', 'makeupcontroller@search');
 Route::post('/feedback', 'makeupcontroller@feedback');
 Route::get('/all', 'makeupcontroller@all');
-Route::get('/makeup-list', 'makeupcontroller@makeupMenu')->name('makeup_menu');
 Route::get('/makeup-details/{id}', 'makeupcontroller@makeup_details')->name('details');
 Route::get('cart','makeupcontroller@carthandler');
 Route::post('removecart/{id}','makeupcontroller@removecart');

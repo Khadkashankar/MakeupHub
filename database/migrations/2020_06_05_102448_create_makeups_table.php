@@ -18,7 +18,6 @@ class CreateMakeupsTable extends Migration
             $table->string('category');
             $table->string('makeup_name');
             $table->text('description');
-            $table->text('type')->nullable();
             $table->mediumText('image');
             $table->integer('price');
             $table->timestamps();
