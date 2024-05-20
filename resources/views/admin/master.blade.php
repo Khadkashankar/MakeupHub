@@ -75,7 +75,7 @@
           <li class="@yield('appoints')">
             <a href="{{asset('appoints')}}">
               <i class="fa fa-calendar" aria-hidden="true"></i>
-              <p>Total Appointmenst</p>
+              <p>Total Appointments</p>
             </a>
           </li>
 

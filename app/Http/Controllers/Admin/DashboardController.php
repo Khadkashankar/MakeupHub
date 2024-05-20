@@ -10,6 +10,7 @@ use App\Category;
 use App\District;
 use App\City;
 use App\Artist;
+use App\Appointment;
 use App\Makeup;
 use App\Order;
 use App\Address;
@@ -64,27 +65,25 @@ class DashboardController extends Controller
     }
 
     function artistdelete(Request $req){
-        $user = User::where('id', $req->id)->where('usertype', 'artist')->first();
+            $user = User::where('id', $req->id)->where('usertype', 'artist')->first();
 
-
-        $user->delete();
-        return redirect()->back()->with('success', 'Deleted successfully !!');
-   }
+            $user->delete();
+            return redirect()->back()->with('success', 'Deleted successfully !!');
+    }
 
 
     function appointshow(){
 
-        $artist = Appointment::;
+        $appoint = Appointment::all();
 
-        return view('admin.artist',['artist'=>$artist]);
+        return view('admin.appointment',['appoint'=>$appoint]);
 
     }
 
-    function artistdelete(Request $req){
-         $user = User::where('id', $req->id)->where('usertype', 'artist')->first();
+    function appointdelete(Request $req){
+         $appoint = Appointment::where('id', $req->id)->first();
 
-
-        $user->delete();
+        $appoint->delete();
         return redirect()->back()->with('success', 'Deleted successfully !!');
    }
 
@@ -302,23 +301,10 @@ class DashboardController extends Controller
         $data = [];
 
         $data['total_order'] = Order::all()->count();
-        $data['new_order'] = Order::all()
-        ->where('order_status','0')
-        ->count();
-        $data['order_confirmed'] = Order::all()
-        ->where('order_status','1')
-        ->count();
+        $data['total_user'] = User::where('usertype', 'user')->count();
+        $data['total_artist'] = User::where('usertype', 'artist')->with('artist')->count();
 
-        $data['makeup_pickup'] = Order::all()
-        ->where('order_status','2')
-        ->count();
-
-        $data['makeup_delivered'] = Order::all()
-        ->where('order_status','3')
-        ->count();
-
-
-        $data['total_regd_users'] = User::count();
+        $data['total_appoint'] = Appointment::all()->count();
 
     return view('admin.dashboard',compact('data'));
 

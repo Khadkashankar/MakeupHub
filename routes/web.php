@@ -60,7 +60,7 @@ Route::group(['middleware'=>['auth','admin']], function(){
 		Route::post('artistdelete','Admin\DashboardController@artistdelete');
 
 		Route::get('appoints','Admin\DashboardController@appointshow');
-		Route::post('artistdelete','Admin\DashboardController@artistdelete');
+		Route::post('appointdelete','Admin\DashboardController@appointdelete');
 
 
 		Route::get('makeupcategory','Admin\DashboardController@makeupcategory');
