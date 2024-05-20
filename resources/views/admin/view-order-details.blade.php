@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-Makeup Menu
+Makeup Hub | Order Details
 @endsection
 
 

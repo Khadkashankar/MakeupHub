@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-Registered Users
+Makeup Hub | Total Users
 @endsection
 
 

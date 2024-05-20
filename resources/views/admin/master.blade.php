@@ -63,7 +63,19 @@
           <li class="@yield('reguser')">
             <a href="{{asset('registered')}}">
               <i class="fa fa-users" aria-hidden="true"></i>
-              <p>Registered Users</p>
+              <p>Total Users</p>
+            </a>
+          </li>
+          <li class="@yield('totalartists')">
+            <a href="{{asset('artists')}}">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              <p>Total Artists</p>
+            </a>
+          </li>
+          <li class="@yield('appoints')">
+            <a href="{{asset('appoints')}}">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <p>Total Appointmenst</p>
             </a>
           </li>
 

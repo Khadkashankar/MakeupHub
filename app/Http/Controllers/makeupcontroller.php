@@ -62,14 +62,12 @@ class makeupcontroller extends Controller
          $recommend_ma = DB::table('recommendation')
             ->join('makeups','recommendation.fo_id','=','makeups.id')
             ->where('mean_rating','>',2)
-            ->where('makeups.type','=',1)
             ->orderByRaw("RAND()")
             ->limit(7)
             ->get();
         $recommend_ma1 = DB::table('recommendation')
             ->join('makeups','recommendation.fo_id','=','makeups.id')
             ->where('mean_rating','>',2)
-            ->where('makeups.type','=',2)
             ->orderByRaw("RAND()")
             ->limit(7)
             ->get();
@@ -120,7 +118,7 @@ class makeupcontroller extends Controller
     function cart($id){
 
         $makeup = Makeup::where([['id',$id]])->first();
-        
+
         Cart::add(['id' => $makeup->id,'name' => $makeup->makeup_name,'qty'=> '1','price' => $makeup->price,'weight' => '1','options' => ['image' => $makeup->image,'description' => $makeup->description]]);
 
             return redirect('/cart')->with('success', 'Cosmetic has been added into your cart');

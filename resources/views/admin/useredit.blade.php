@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-Edit User
+Makeup Hub | Edit User
 @endsection
 
 
@@ -37,7 +37,7 @@ Edit User
                   <div class="form-group">
                       <label for="ut">User Type</label>
 
-                    <select class="form-control" id="ut" name="usertype">
+                    <select class="form-control" id="ut" name="usertype" required>
                       <option value="">Select User Type</option>
                       <option value="admin">Admin</option>
                       <option value="user">User</option>

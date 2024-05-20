@@ -9,6 +9,7 @@ use App\User;
 use App\Category;
 use App\District;
 use App\City;
+use App\Artist;
 use App\Makeup;
 use App\Order;
 use App\Address;
@@ -24,7 +25,7 @@ class DashboardController extends Controller
     }
 
     function registered(){
-    	$data = User::all();
+    	$data = User::where('usertype', 'user')->get();
 
     	return view('admin.registered',['data'=>$data]);
     }
@@ -53,6 +54,39 @@ class DashboardController extends Controller
 
         return redirect('registered')->with('status','Updated Successfully !! ');
     }
+
+    function artistshow(){
+
+        $artist = User::where('usertype', 'artist')->with('artist')->get();
+
+    	return view('admin.artist',['artist'=>$artist]);
+
+    }
+
+    function artistdelete(Request $req){
+        $user = User::where('id', $req->id)->where('usertype', 'artist')->first();
+
+
+        $user->delete();
+        return redirect()->back()->with('success', 'Deleted successfully !!');
+   }
+
+
+    function appointshow(){
+
+        $artist = Appointment::;
+
+        return view('admin.artist',['artist'=>$artist]);
+
+    }
+
+    function artistdelete(Request $req){
+         $user = User::where('id', $req->id)->where('usertype', 'artist')->first();
+
+
+        $user->delete();
+        return redirect()->back()->with('success', 'Deleted successfully !!');
+   }
 
     function makeupcategory(){
 

@@ -55,6 +55,14 @@ Route::group(['middleware'=>['auth','admin']], function(){
 		Route::post('userdelete','Admin\DashboardController@userdelete');
 		Route::get('useredit/{id}','Admin\DashboardController@useredit');
 		Route::post('submitform','Admin\DashboardController@submitform');
+
+		Route::get('artists','Admin\DashboardController@artistshow');
+		Route::post('artistdelete','Admin\DashboardController@artistdelete');
+
+		Route::get('appoints','Admin\DashboardController@appointshow');
+		Route::post('artistdelete','Admin\DashboardController@artistdelete');
+
+
 		Route::get('makeupcategory','Admin\DashboardController@makeupcategory');
 
 		Route::post('submitcategory','Admin\DashboardController@submitcategory');

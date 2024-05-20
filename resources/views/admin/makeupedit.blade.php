@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-FOS | Cosmetics Edit
+Makeup Hub | Cosmetics Edit
 @endsection
 
 
