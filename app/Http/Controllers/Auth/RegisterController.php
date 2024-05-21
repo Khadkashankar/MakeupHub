@@ -63,7 +63,7 @@ class RegisterController extends Controller
     {
         $rules = [
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:10'],
+            'phone' => ['required', 'numeric', 'min:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:4', 'confirmed'],
             'usertype' => ['required', 'string', 'in:user,artist'],
@@ -72,7 +72,7 @@ class RegisterController extends Controller
         if ($data['usertype'] === 'artist') {
             $rules['description'] = ['required', 'string', 'max:1000'];
             $rules['speciality'] = ['required', 'string', 'max:255'];
-            $rules['image'] = ['required', 'image', 'mimes:jpeg,png,jpg'];
+            $rules['image'] = ['required', 'image', 'mimes:jpeg,png,jpg,avif'];
             $rules['price'] = ['required', 'numeric'];
         }
 

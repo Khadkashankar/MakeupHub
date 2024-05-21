@@ -53,7 +53,7 @@ active
   </div>
       <div style="display: inline-block; margin-left: 10px">
          <p class="ml-0"><b class="ml-0">{{$cart->name}}</b></p>
-    <p>{{$cart->options->description}}</p>
+    <p>{!! $cart->options->description !!}</p>
         </div>
     <div class="d-flex gparent" style="justify-content: space-between;">
       <div class="input-group quantity float-right" style="width: 130px">
