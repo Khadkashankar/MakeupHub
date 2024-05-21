@@ -47,8 +47,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="description">About Work</label>
-                                <textarea name="description" class="form-control">{{ $artist->description }}</textarea>
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" class="form-control">{!! $artist->description !!}</textarea>
                             </div>
 
                             <div class="form-group">
@@ -76,4 +76,16 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .then(editor => {
+            editor.setData(`{!! $artist->description !!}`);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 @endsection

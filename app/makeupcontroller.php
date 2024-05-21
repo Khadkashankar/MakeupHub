@@ -116,21 +116,14 @@ class makeupcontroller extends Controller
 // add items to cart.....
 
     function cart($id){
-        $user = Auth::user();
-
-        if (!$user) {
-            return redirect('/login')->with('error', 'You need to be logged in to add items to the cart.');
-        }
-
+        $userId = auth()->user()->id;
         $makeup = Makeup::where([['id',$id]])->first();
 
         Cart::add(['id' => $makeup->id,'name' => $makeup->makeup_name,'qty'=> '1','price' => $makeup->price,'weight' => '1','options' => ['image' => $makeup->image,'description' => $makeup->description]]);
 
         DB::table('carts')->insert([
-            'user_id' => $user->id,
-            'makeup_id' => $makeup->id,
-            'created_at' => now(),
-            'updated_at' => now()
+            'user_id' => $userId,
+            'makeup_id' => $makeup->id
         ]);
             return redirect('/cart')->with('success', 'Cosmetic has been added into your cart');
     }

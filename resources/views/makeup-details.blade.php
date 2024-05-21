@@ -50,14 +50,14 @@ Makeup Hub | Home
     }
 </style>
 @section('content')
-<br> 
+<br>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-7 mx-auto">
-			<h2 class="text-center">Cosmetic Order Page</h2>
+			<h2 class="text-center">Cosmetic Details Page</h2>
 			<br>
-			<img src="{{asset('uploads')}}/{{$data['details']->image ?? ''}}" height="200" width="300" class="img img-responsive img-thumbnail"> 
-			<br> 
+			<img src="{{asset('uploads')}}/{{$data['details']->image ?? ''}}" height="200" width="300" class="img img-responsive img-thumbnail">
+			<br>
 			<br>
 			<table class="table table-striped">
 				<tr>
@@ -69,7 +69,7 @@ Makeup Hub | Home
 				</tr>
 				<tr>
 					<th>Description</th>
-					<td>{{$data['details']->description}}</td>
+					<td>{!! $data['details']->description !!}</td>
 				</tr>
 				<tr>
 					<th>Price</th>

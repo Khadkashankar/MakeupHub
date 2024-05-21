@@ -57,7 +57,7 @@
                             </tr>
                             <tr>
                                 <th>About Work:</th>
-                                <td>{{ $artist->description }}</td>
+                                <td>{!! $artist->description !!}</td>
                             </tr>
                             <tr>
                                 <th>Location:</th>

@@ -44,7 +44,7 @@ active
 
                         <div class="form-group">
                             <label for="des">Description</label>
-                            <textarea class="form-control" required placeholder="Write Description.." name="description">{{$makeup->description}}</textarea>
+                            <textarea class="form-control" id="description" name="description">{!! $makeup->description !!}</textarea>
                         </div><br>
 
                         <div class="input-group">
@@ -66,5 +66,16 @@ active
     </div>
 </div>
 
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 
+<script>
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .then(editor => {
+            editor.setData(`{!! $makeup->description !!}`);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 @endsection

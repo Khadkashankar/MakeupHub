@@ -6,6 +6,7 @@
   </title>
 
   <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
   <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css">

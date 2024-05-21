@@ -85,7 +85,7 @@ Makeup Hub | Home
 				</tr>
 				<tr>
 					<th>Description</th>
-					<td>{{$data['details']->description}}</td>
+					<td>{!! $data['details']->description !!}</td>
 				</tr>
 				<tr>
 					<th>Price</th>

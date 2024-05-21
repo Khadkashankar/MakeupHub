@@ -49,7 +49,7 @@ active
 
                         <div class="form-group">
                             <label for="des">Description</label>
-                            <textarea class="form-control" required placeholder="Write Description.." name="description"></textarea>
+                            <textarea class="form-control" placeholder="Write Description.." id="description" name="description"></textarea>
                         </div><br>
                         <div class="input-group">
                             <label>Image</label>
@@ -69,6 +69,13 @@ active
         </div>
     </div>
 </div>
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 
-
+<script>
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 @endsection

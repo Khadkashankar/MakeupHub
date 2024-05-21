@@ -103,6 +103,7 @@ Route::group(['middleware'=>['auth','admin']], function(){
 
 
 
+
 Route::group(['middleware'=>['auth','user']], function(){
 
 	Route::get('myorders','makeupcontroller@orders')->name('myorders');
