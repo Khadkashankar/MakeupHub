@@ -23,7 +23,6 @@ Route::post('removecart/{id}','makeupcontroller@removecart');
 Route::post('updatecart/{id}','makeupcontroller@updatecart');
 Route::get('carts/{id}','makeupcontroller@cart');
 Route::get('/about-us', 'Admin\DashboardController@aboutUs');
-Route::get('/how-to-order', 'Admin\DashboardController@howToOrder');
 
 Route::get('/artist-details/{id}', 'artistController@artist_details')->name('details');
 Route::get('appointment/{id}', 'artistController@appointment')->name('appointment');
@@ -93,7 +92,7 @@ Route::group(['middleware'=>['auth','admin']], function(){
 		Route::get('orders','Admin\DashboardController@orders');
 		Route::post('update-order','Admin\DashboardController@updateorder');
 
-		Route::post('search','Admin\DashboardController@search');
+		Route::post('view-order','Admin\DashboardController@search');
 		Route::get('view-order-details/{id}','Admin\DashboardController@vieworders');
 
 

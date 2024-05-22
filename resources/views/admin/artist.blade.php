@@ -76,7 +76,7 @@ active
                                     {{$a->artist->speciality}}
                                     </td>
                                     <td>
-                                    {{$a->artist->description}}
+                                    {!! $a->artist->description !!}
                                     </td>
                                     <td class="text-right">
                                         <div class="d-flex">

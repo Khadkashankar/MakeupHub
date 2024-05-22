@@ -40,7 +40,7 @@ class makeupcontroller extends Controller
         $makeup_menu_id = $menuId[$k];
 
         $rating = DB::table('rating')
-        ->join('makeups','rating.f_id','=','makeups.id')
+        ->join('makeups','rating.m_id','=','makeups.id')
         ->join('users','rating.u_id','=','users.id')
         ->where('makeups.id','=',$makeup_menu_id);
 
@@ -53,27 +53,27 @@ class makeupcontroller extends Controller
          $mean = ceil($sum/$count);
 
          $rec = Recommendation::updateOrCreate([
-            'fo_id'=>$makeup_menu_id,
+            'ma_id'=>$makeup_menu_id,
          ],
          ['mean_rating'=>$mean,]
      );
          $rec->save();
 
          $recommend_ma = DB::table('recommendation')
-            ->join('makeups','recommendation.fo_id','=','makeups.id')
+            ->join('makeups','recommendation.ma_id','=','makeups.id')
             ->where('mean_rating','>',2)
             ->orderByRaw("RAND()")
             ->limit(7)
             ->get();
         $recommend_ma1 = DB::table('recommendation')
-            ->join('makeups','recommendation.fo_id','=','makeups.id')
+            ->join('makeups','recommendation.ma_id','=','makeups.id')
             ->where('mean_rating','>',2)
             ->orderByRaw("RAND()")
             ->limit(7)
             ->get();
 
         $recommend_both = DB::table('recommendation')
-            ->join('makeups','recommendation.fo_id','=','makeups.id')
+            ->join('makeups','recommendation.ma_id','=','makeups.id')
             ->where('mean_rating','>',2)
             ->orderByRaw("RAND()")
             ->limit(7)
@@ -94,9 +94,9 @@ class makeupcontroller extends Controller
         if(Auth::user()){
             $data['rating_value'] = Rating::all()
             ->where('u_id',Auth::User()->id)
-            ->where('f_id',$id);
+            ->where('m_id',$id);
         }
-        $data['total_rating'] = Rating::where('f_id',$id)->count();
+        $data['total_rating'] = Rating::where('m_id',$id)->count();
         $data['details'] = Makeup::find($id);
         return view('makeup-details',['data'=>$data]);
     }
@@ -104,7 +104,7 @@ class makeupcontroller extends Controller
     public function rating(Request $req){
         $rating = Rating::updateOrCreate([
             'u_id'=>Auth::User()->id,
-            'f_id'=>$req->fid,
+            'm_id'=>$req->fid,
         ],
         ['rating_value'=>$req->ratingval]
     );
@@ -146,14 +146,14 @@ class makeupcontroller extends Controller
         $orders = Order::where([['u_id',auth()->user()->id],['order_status','!=','3']])->orderBy('created_at','desc')->get();
 
          $recentorder = DB::table('orders')
-        ->join('makeups','orders.f_id','=','makeups.id')
+        ->join('makeups','orders.mu_id','=','makeups.id')
         ->join('users','orders.u_id','=','users.id')
         ->where('users.id',Auth::User()->id)
         ->where('orders.order_status','3')
         ->orderBy('orders.created_at','desc')->get();
 
         $rsum = DB::table('orders')
-        ->join('makeups','orders.f_id','=','makeups.id')
+        ->join('makeups','orders.mu_id','=','makeups.id')
         ->join('users','orders.u_id','=','users.id')
         ->where('users.id',Auth::User()->id)
         ->where('orders.order_status','3')
@@ -216,7 +216,7 @@ class makeupcontroller extends Controller
         foreach($carts as $cart){
             $order = Order::create([
                 'u_id' => auth()->user()->id,
-                'f_id' => $cart->id,
+                'mu_id' => $cart->id,
                 'order_no' => random_int(000000, 999999),
                 'order_status' => '0',
                 'quantity' => $cart->qty,

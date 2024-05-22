@@ -15,8 +15,8 @@ class CreateRecommendationTable extends Migration
     {
         Schema::create('recommendation', function (Blueprint $table) {
             $table->id();
-            $table->Biginteger('fo_id')->unsigned();
-            $table->foreign('fo_id')->references('id')->on('makeups')->onDelete('cascade');
+            $table->Biginteger('ma_id')->unsigned();
+            $table->foreign('ma_id')->references('id')->on('makeups')->onDelete('cascade');
             $table->Biginteger('mean_rating');
 
             $table->timestamps();

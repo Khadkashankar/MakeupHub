@@ -17,8 +17,8 @@ class CreateRatingTable extends Migration
             $table->id();
             $table->Biginteger('u_id')->unsigned();
             $table->foreign('u_id')->references('id')->on('users')->onDelete('cascade');
-            $table->Biginteger('f_id')->unsigned();
-            $table->foreign('f_id')->references('id')->on('makeups')->onDelete('cascade');
+            $table->Biginteger('m_id')->unsigned();
+            $table->foreign('m_id')->references('id')->on('makeups')->onDelete('cascade');
             $table->integer('rating_value');
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ use App\Appointment;
 use App\Makeup;
 use App\Order;
 use App\Address;
-use Nexmo\Laravel\Facade\Nexmo;
+
 
 class DashboardController extends Controller
 {
@@ -267,7 +267,7 @@ class DashboardController extends Controller
         $address = Address::where('u_id',$user)->first();
 
         $orders = DB::table('orders')
-        ->join('makeups','orders.f_id','makeups.id')
+        ->join('makeups','orders.mu_id','makeups.id')
         ->join('users','orders.u_id','users.id')
         ->select(
             'orders.*',
@@ -284,16 +284,6 @@ class DashboardController extends Controller
         $order = Order::find($req->id);
         $order->order_status = $req->os;
         $order->save();
-        $user_phone = User::where([['id',$order->u_id]])->first()->phone;
-        $sms = Nexmo::message()->send([
-            'to'   => $user_phone,
-            'from' => '9779814678481',
-            'text' => ($req->os == 1) ? 'Your order is confirmed' : (($req->os == 2) ? 'Your ordered cosmetic is picked up, be patient!' : 'Your Order is delivered!, Thank you for your order!'),
-        ]);
-        if($sms){
-            return redirect('orders')->with('success','We notified to the customer through SMS');
-        }
-
         return redirect('orders')->with('success','order status saved and sms sent to the customer');
 
     }

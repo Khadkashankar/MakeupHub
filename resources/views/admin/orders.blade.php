@@ -22,35 +22,35 @@ Makeup Hub | Orders
                 <h>Orders / Filter</h5>
                 <div class="row m-auto">
               <div class="col-md-2">
-                <form action="/search" method="post">
+                <form action="/view-order" method="post">
                   @csrf
                  <input type="hidden" name="search" value="">
                  <button class="btn btn-primary" type="submit">All Orders</button>
                 </form>
               </div>
                   <div class="col-md-2">
-              	<form action="/search" method="post">
+              	<form action="/view-order" method="post">
                   @csrf
                  <input type="hidden" name="search" value="0">
                  <button class="btn btn-primary" type="submit">Not Confirmed</button>
                 </form>
               </div>
               <div class="col-md-2">
-                <form action="/search" method="post">
+                <form action="/view-order" method="post">
                   @csrf
                  <input type="hidden" name="search" value="1">
                  <button class="btn btn-primary" type="submit">Confirmed</button>
                 </form>
               </div>
               <div class="col-md-2">
-                <form action="/search" method="post">
+                <form action="/view-order" method="post">
                   @csrf
                  <input type="hidden" name="search" value="2">
                  <button class="btn btn-primary" type="submit">Cosmetics Pickup</button>
                 </form>
               </div>
               <div class="col-md-2">
-                <form action="/search" method="post">
+                <form action="/view-order" method="post">
                   @csrf
                  <input type="hidden" name="search" value="3">
                  <button class="btn btn-primary" type="submit">Cosmetics Delivered</button>

@@ -9,6 +9,6 @@ class Recommendation extends Model
     protected $table = 'recommendation';
 
     protected $fillable = [
-    	'fo_id','mean_rating',
+    	'ma_id','mean_rating',
     ];
 }

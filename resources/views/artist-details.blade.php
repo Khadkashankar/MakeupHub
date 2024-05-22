@@ -96,33 +96,7 @@ Makeup Hub | Home
 				<a href="{{asset('appointment')}}/{{$data['details']->id}}" class="btn btn-danger">Book Now</a>
 			</div>
 			<br><br>
-			<div class="rating">
-				<h3>Give Rating</h3>
-				<ul class="stars" id="stars">
-					<li class="star" id="star"><i class="fa-solid fa-star"></i></li>
-					<li class="star" id="star"><i class="fa fa-star"></i></li>
-					<li class="star" id="star"><i class="fa fa-star"></i></li>
-					<li class="star" id="star"><i class="fa fa-star"></i></li>
-					<li class="star" id="star"><i class="fa fa-star"></i></li>
-				</ul>
-				@if(auth()->user())
-					<p id="result">@forelse($data['rating_value'] as $r)
-						<p class="text-primary">You already gave {{$r->rating_value}} rating..</p>
-						@empty
-					@endforelse</p>
-					@if($errors->any())
-						<h5 class=" bg-primary">{{$errors->first()}}</h5>
-					@endif
-					<form method="post" action="/rating" name="ratingform">
-						@csrf
-						<input type="hidden" name="fid" value="{{$data['details']->id}}" required>
-						<input type="hidden" name="ratingval" id="kr" required value="1">
-						<button type="submit" class="btn btn-success">Submit</button>
-					</form>
-				@else
-					<p><b style="font-size: 22px;">{{$data['total_rating']}}</b> people rate this product. Please <a href="/login">login</a> to give rating.</p>
-				@endif
-			</div>
+			
 		</div>
 		<div class="col-md-5">
 		</div>
