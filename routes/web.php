@@ -66,19 +66,19 @@ Route::group(['middleware'=>['auth','admin']], function(){
 
 		Route::post('submitcategory','Admin\DashboardController@submitcategory');
 
-		Route::get('categorydelete/{id}','Admin\DashboardController@categorydelete');
+		Route::delete('categorydelete/{id}','Admin\DashboardController@categorydelete');
 
 		Route::get('district','Admin\DashboardController@district');
 
 		Route::post('adddistrict','Admin\DashboardController@addDistrict');
 
-		Route::get('districtdelete/{id}','Admin\DashboardController@districtDelete');
+		Route::delete('districtdelete/{id}','Admin\DashboardController@districtDelete');
 
 		Route::get('city','Admin\DashboardController@city');
 
 		Route::post('addcity','Admin\DashboardController@addCity');
 
-		Route::get('citydelete/{id}','Admin\DashboardController@cityDelete');
+		Route::delete('citydelete/{id}','Admin\DashboardController@cityDelete');
 
 		Route::get('makeupmenu','Admin\DashboardController@makeupmenu');
 		Route::get('addmakeup','Admin\DashboardController@addmakeup');

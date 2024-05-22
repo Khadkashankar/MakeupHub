@@ -62,10 +62,11 @@ Makeup Hub | District
                         </td>
 
                         <td class="text-right">
-                          <form action="districtdelete/{{$dis->id}}" method="Delete">
-                            @csrf
-                            <button class="btn btn-danger" onclick="del(event)">Delete</button>
-                          </form>
+                        <form id="delete-form-{{$dis->id}}" action="districtdelete/{{$dis->id}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" class="btn btn-danger delete-btn" data-id="{{$dis->id}}">Delete</button>
+                        </form>
                         </td>
                       </tr>
                       <?php $i++; ?>
@@ -85,14 +86,14 @@ Makeup Hub | District
 @endsection
 @section('js')
 <script>
-  function del(e){
-    e.preventDefault();
-    var msg = confirm('Are You sure to delete ?');
-    if(msg == true){
-      $('form').submit();
-    }else{
-      return false;
-    }
-  }
+   $(document).ready(function() {
+        $('.delete-btn').on('click', function() {
+            var id = $(this).data('id');
+            var confirmation = confirm('Are you sure to delete?');
+            if (confirmation) {
+                $('#delete-form-' + id).submit();
+            }
+        });
+    });
 </script>
 @endsection

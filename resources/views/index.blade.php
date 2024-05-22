@@ -34,7 +34,6 @@ Makeup Hub
 
 
     </div>
-    <h5 style="display: flex; justify-content: center;">{{$makeups->links()}}</h5>
     <p class="text-center font-weight-bold list-title m-1">Recommendation for you</p><br>
     <div class="row makeupdiv">
 

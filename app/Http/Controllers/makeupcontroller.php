@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Session;
 class makeupcontroller extends Controller
 {
     public function index(){
-    	$makeups = Makeup::paginate(12);
+    	// $makeups = Makeup::paginate(12);
         // ........................ makeup menu recommendation .....................
         $total_makeup_menu = Makeup::all();
 
@@ -78,7 +78,7 @@ class makeupcontroller extends Controller
             ->orderByRaw("RAND()")
             ->limit(7)
             ->get();
-        return view('index',['makeups'=>$makeups,'artists' => $artists,'recommendation_ma'=>$recommend_ma,'recommendation_ma1'=>$recommend_ma1,'recommendation_both'=>$recommend_both]);
+        return view('index',['makeups'=>$total_makeup_menu,'artists' => $artists,'recommendation_ma'=>$recommend_ma,'recommendation_ma1'=>$recommend_ma1,'recommendation_both'=>$recommend_both]);
         }else{
         	dd('Something Went Wrong ! Please visit later');
         }
