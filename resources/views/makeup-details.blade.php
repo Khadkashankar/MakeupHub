@@ -54,7 +54,7 @@ Makeup Hub | Home
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-7 mx-auto">
-			<h2 class="text-center">Cosmetic Details Page</h2>
+			<h2 style="text-align: center;">Cosmetic Details Page</h2>
 			<br>
 			<img src="{{asset('uploads')}}/{{$data['details']->image ?? ''}}" height="200" width="300" class="img img-responsive img-thumbnail">
 			<br>

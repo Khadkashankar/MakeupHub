@@ -46,7 +46,7 @@ Makeup Hub | Orders
                       <tr>
                         <td>#{{ $order->order_no}}</td>
                         <td ><img src="/uploads/{{$order->makeup->image ?? ''}}" width="100" style="height: 100px !important;"></td>
-                        <td colspan="2"><b>{{$order->makeup->makeup_name}}<br> </b>{{$order->makeup->description}}<br>
+                        <td colspan="2"><b>{{$order->makeup->makeup_name}}<br> </b>{!! $order->makeup->description !!}<br>
                           <td><b>{{$order->quantity}}</b><br>
                         </td>
 
